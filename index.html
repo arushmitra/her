@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>How you be</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #ffe6fb;
+        overflow: hidden;
+        margin: 0;
+        padding: 20px;
+    }
+
+    img {
+        width: 85%;
+        max-width: 330px;
+        border-radius: 18px;
+        box-shadow: 0 0 15px pink;
+        margin-top: 10px;
+    }
+
+    button {
+        padding: 14px 32px;
+        font-size: 22px;
+        border: none;
+        border-radius: 14px;
+        background: #ffb6e6;
+        cursor: pointer;
+        margin-top: 25px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: 0.2s;
+        width: 70%;
+        max-width: 260px;
+    }
+
+    button:hover {
+        background: #ff7cd9;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    #msg {
+        font-size: 34px;
+        margin-top: 25px;
+        font-weight: bold;
+        color: #ff4081;
+        opacity: 0;
+        transition: 0.7s;
+    }
+
+    #secondBtn {
+        display: none;
+    }
+
+    .heart {
+        position: fixed;
+        color: #ff4f9a;
+        font-size: 28px;
+        animation: floatUp 3s linear infinite;
+        user-select: none;
+    }
+
+    @keyframes floatUp {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(-150px); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+<img id="kidPic" src="kid.JPG">
+<img id="pic1" src="good-one.JPG" style="display:none; margin-left:auto; margin-right:auto;">
+<img id="pic2" src="ooh-la.JPG" style="display:none; margin-left:auto; margin-right:auto;">
+
+<h2 style="margin-top:20px; color:#ff77b7;">Hello Megamind</h2>
+
+<button id="firstBtn" onclick="firstClick()">Click Me</button>
+<button id="secondBtn" onclick="secondClick()">Now Click Here</button>
+
+<div id="msg">You're so pretty baba ramdev 🧘🧔🏽‍♀️</div>
+
+<script>
+function firstClick() {
+    document.getElementById("kidPic").style.display = "none";
+    document.getElementById("pic1").style.display = "block";
+    document.getElementById("msg").style.opacity = 1;
+
+    document.getElementById("secondBtn").style.display = "block";
+    document.getElementById("firstBtn").style.display = "none"; 
+
+    for (let i = 0; i < 12; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = (window.innerHeight - 40) + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+    }
+}
+
+function secondClick() {
+    document.getElementById("pic1").style.display = "none";
+    document.getElementById("pic2").style.display = "block";
+    document.getElementById("msg").innerHTML = "i lied, ur a loser ";
+}
+</script>
+
+</body>
+</html>
